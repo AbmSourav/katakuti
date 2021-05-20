@@ -49,13 +49,18 @@ class LinkedList {
 	}
 
 	remove(val) {
+		if (this.head.val === val && this.head.next !== null) {
+			this.head = this.head.next
+			this.size--
+			return true;
+		}
+
 		let previousNode = null
 		let currentNode = this.head
-
 		while (currentNode !== null) {
 			if (val === currentNode.val) {
-				// console.log(currentNode.val);
 				previousNode.next = currentNode.next
+				this.size--
 				return true;
 			}
 
@@ -72,13 +77,13 @@ linkedList.insert("a");
 linkedList.insert("b");
 linkedList.insert("c");
 
-console.log(linkedList);
+// console.log(linkedList);
 // head --> a --> b --> c --> null
 
 // console.log(linkedList.getHead());	// a
 
 // console.log(linkedList.getTail());	// c
 
-// linkedList.remove('b');
-// console.log(linkedList);
-// head --> a --> c --> null
+linkedList.remove('a');
+console.log(linkedList);
+// head --> b --> c --> null
