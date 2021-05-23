@@ -21,7 +21,8 @@ c.right = f
 //	  /\	  \
 //	 4  5	  6	
 
-// sum all binary tree nodes using Breadth First algorithim
+
+// *** sum all binary tree nodes using Breadth First algorithim
 const sumTree = root => {
 	const queue = [root]
 	let total = 0
