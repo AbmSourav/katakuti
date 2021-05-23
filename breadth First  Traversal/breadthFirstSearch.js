@@ -29,15 +29,9 @@ c.right = f
 
 // Search in a binary tree using Breadth First algorithim
 const breadthFirstSearch = (root, searchValue) => {
-	// data structure that have been use in Breath First is "Queue".
-	// and Queue uses FIFO method for data manipulation.
 	const queue = [root];
 
 	while ( queue.length > 0 ) {
-      
-      	// shift() function is the key for FIFO and makes it a Queue.
-		// if you use pop() then it'll become a LIFO and the array will become a Stack 
-      	// But Breath First uses Queue.
 		const current = queue.shift()
 
         // if search value found then just return here.

@@ -55,6 +55,7 @@ class LinkedList {
 			return true;
 		}
 
+		// two pointer approach
 		let previousNode = null
 		let currentNode = this.head
 		while (currentNode !== null) {

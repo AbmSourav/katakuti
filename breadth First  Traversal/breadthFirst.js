@@ -1,18 +1,11 @@
-// Binary tree
-class Node {
-	constructor(val) {
-		this.val = val
-		this.left = null
-		this.right = null
-	}
-}
+const {Tree} = require('./binaryTree')
 
-const binaryTree = new Node(1);
-const b = new Node(2);
-const c = new Node(3);
-const d = new Node(4);
-const e = new Node(5);
-const f = new Node(6);
+const binaryTree = new Tree(1);
+const b = new Tree(2);
+const c = new Tree(3);
+const d = new Tree(4);
+const e = new Tree(5);
+const f = new Tree(6);
 
 binaryTree.left = b
 binaryTree.right = c
@@ -31,9 +24,15 @@ c.right = f
 // Breadth First algorithim
 // Description: it starts from the root of the tree and explore all the nodes.
 const breadthFirstPrint = root => {
+	// data structure that have been use in Breath First is "Queue".
+	// and Queue uses FIFO method for data manipulation.
 	const queue = [root];
 
 	while ( queue.length > 0 ) {
+
+		// shift() function is the key for FIFO and makes it a Queue.
+		// if you use pop() then it'll become a LIFO and the array will become a Stack 
+      	// But Breath First uses Queue.
 		const current = queue.shift();
 
 		if ( current.left ) {
@@ -41,6 +40,7 @@ const breadthFirstPrint = root => {
 			// console.log(current);
 		}
 
+		// push back inner nodes of the tree in the queue.
 		if ( current.right ) {
 			queue.push(current.right)
 			// console.log(current);
@@ -48,26 +48,3 @@ const breadthFirstPrint = root => {
 	}
 }
 breadthFirstPrint(binaryTree);
-
-
-// sum all binary tree nodes using Breadth First algorithim
-const sumTree = root => {
-	const queue = [root]
-	let sum = 0
-
-	while ( queue.length > 0 ) {
-		const current = queue.shift()
-		sum += current.val
-
-		if ( current.left ) {
-			queue.push(current.left)
-		}
-
-		if ( current.right ) {
-			queue.push(current.right)
-		}
-	}
-
-	return sum
-}
-// console.log(sumTree(binaryTree));
