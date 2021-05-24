@@ -27,7 +27,16 @@ c.right = f
 //	  /\	  \
 //	 4  5	  6	
 
-// Search in a binary tree using Breadth First algorithim
+
+/**
+ * Search in a binary tree using Breadth First algorithim
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ * 
+ * @param {object} root - Tree root
+ * @param searchValue - Tree node
+ * @returns boolean
+ */
 const breadthFirstSearch = (root, searchValue) => {
 	const queue = [root];
 

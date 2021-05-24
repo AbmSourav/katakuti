@@ -22,7 +22,15 @@ c.right = f
 //	 4  5	  6	
 
 
-// *** sum all binary tree nodes using Breadth First algorithim
+/**
+ * Sum all binary tree nodes using Breadth First algorithim
+ * Time complexity: O(n)
+ * Space complexity: O(n)
+ * 
+ * @param {object} root - Tree root
+ * 
+ * @returns number
+ */
 const sumTree = root => {
 	const queue = [root]
 	let total = 0

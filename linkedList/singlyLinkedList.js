@@ -14,6 +14,7 @@ class LinkedList {
 		this.size = 0
 	}
 
+	// Time complexity: O(1)
 	insert(node) {
 		this.size++;
 		if ( this.head === null ) {
@@ -30,10 +31,12 @@ class LinkedList {
 		return true;
 	}
 
+	// Time complexity: O(1)
 	getHead() {
 		return this.head.val;
 	}
 
+	// Time complexity: O(1)
 	getTail() {
 		let tail = null
 		let currentNode = this.head
@@ -48,6 +51,7 @@ class LinkedList {
 		return tail.val;
 	}
 
+	// Time complexity: O(n)
 	remove(val) {
 		if (this.head.val === val && this.head.next !== null) {
 			this.head = this.head.next

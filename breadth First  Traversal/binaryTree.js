@@ -6,5 +6,4 @@ class Tree {
 	}
 }
 
-// module.extends.Node = Node
 exports.Tree = Tree
