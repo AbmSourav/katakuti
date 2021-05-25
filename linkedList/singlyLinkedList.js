@@ -1,5 +1,5 @@
 
-// create a list where every every item has the reference of it's next item.
+// create a list where every item has the reference of it's next item.
 class Node {
 	constructor(node) {
 		this.val = node;
@@ -15,19 +15,17 @@ class LinkedList {
 	}
 
 	// Time complexity: O(1)
-	insert(node) {
-		this.size++;
+	insertAtHead(node) {
 		if ( this.head === null ) {
 			this.head = new Node(node);
+			this.size++;
 			return true;
 		}
 
-		let currentNode = this.head
-		while ( currentNode.next !== null ) {
-			currentNode = currentNode.next
-		}
-
-		currentNode.next = new Node(node);
+		const currentNode = this.head
+		this.head = new Node(node)
+		this.head.next = currentNode
+		this.size++
 		return true;
 	}
 
@@ -36,7 +34,28 @@ class LinkedList {
 		return this.head.val;
 	}
 
-	// Time complexity: O(1)
+	// Time complexity: O(n)
+	insertAtTail(node) {
+		if ( this.head === null ) {
+			this.head = new Node(node);
+			this.size++;
+			return true;
+		}
+
+		let currentNode = this.head
+		while ( currentNode.val !== undefined ) {
+			if (currentNode.next === null) {
+				currentNode.next = new Node(node)
+				this.size++;
+				return true;
+			}
+			currentNode = currentNode.next
+		}
+
+		return false;
+	}
+
+	// Time complexity: O(n)
 	getTail() {
 		let tail = null
 		let currentNode = this.head
@@ -89,9 +108,10 @@ class LinkedList {
 }
 
 const linkedList = new LinkedList();
-linkedList.insert("a");
-linkedList.insert("b");
-linkedList.insert("c");
+linkedList.insertAtHead("c");
+linkedList.insertAtHead("b");
+linkedList.insertAtHead("a");
+// linkedList.insertAtTail("z");
 
 // console.log(linkedList);
 // head --> a --> b --> c --> null
@@ -104,5 +124,5 @@ linkedList.insert("c");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-linkedList.printAllValues();
+// linkedList.printAllValues();
 // a b c
