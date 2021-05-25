@@ -98,7 +98,7 @@ class LinkedList {
 	// Time complexity: O(n)
 	printAllValues() {
 		let currentNode = this.head
-		while (currentNode.val !== undefined) {
+		while (currentNode.next !== undefined) {
 			console.log(currentNode.val);
 			currentNode = currentNode.next
 
@@ -124,5 +124,5 @@ linkedList.insertAtHead("a");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-// linkedList.printAllValues();
+linkedList.printAllValues();
 // a b c
