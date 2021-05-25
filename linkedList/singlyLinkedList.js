@@ -75,6 +75,17 @@ class LinkedList {
 
 		return false;
 	}
+
+	// Time complexity: O(n)
+	printAllValues() {
+		let currentNode = this.head
+		while (currentNode.val !== undefined) {
+			console.log(currentNode.val);
+			currentNode = currentNode.next
+
+			if (currentNode === null) break;
+		}
+	}
 }
 
 const linkedList = new LinkedList();
@@ -89,6 +100,9 @@ linkedList.insert("c");
 
 // console.log(linkedList.getTail());	// c
 
-linkedList.remove('a');
-console.log(linkedList);
+// linkedList.remove('a');
+// console.log(linkedList);
 // head --> b --> c --> null
+
+linkedList.printAllValues();
+// a b c
