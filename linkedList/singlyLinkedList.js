@@ -124,5 +124,5 @@ linkedList.insertAtHead("a");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-linkedList.printAllValues();
+// linkedList.printAllValues();
 // a b c
