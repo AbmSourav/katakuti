@@ -73,8 +73,10 @@ class LinkedList {
 	// Time complexity: O(n)
 	insertAtPositonX(data, position) {
 		if ( position === 0 ) {
-			console.log("Use `insertAtHead()` method to insert data at Head.");
+			console.error("Use `insertAtHead()` method to insert data at Head.");
 			return false;
+		} else if ( position > this.size && position != this.size + 1 ) {
+			console.error(`Out of range. Size of the linkedList is ${this.size}`);
 		}
 	
 		let prevNode = null
@@ -84,6 +86,7 @@ class LinkedList {
 			if ( count === position ) {
 				prevNode.next = new Node(data)
 				prevNode.next.next = currentNode
+				this.size++
 			}
 	
 			prevNode = currentNode
@@ -150,7 +153,7 @@ linkedList.insertAtHead("a");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-// linkedList.insertAtPositonX('x', 2)
+linkedList.insertAtPositonX('x', 5)
 // head --> a --> b --> x --> c --> null
 
 linkedList.printAllValues();
