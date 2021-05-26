@@ -71,6 +71,32 @@ class LinkedList {
 	}
 
 	// Time complexity: O(n)
+	insertAtPositonX(data, position) {
+		if ( position === 0 ) {
+			console.log("Use `insertAtHead()` method to insert data at Head.");
+			return false;
+		}
+	
+		let prevNode = null
+		let currentNode = this.head
+		let count = 0
+		while (currentNode.next !== undefined) {
+			if ( count === position ) {
+				prevNode.next = new Node(data)
+				prevNode.next.next = currentNode
+			}
+	
+			prevNode = currentNode
+			currentNode = currentNode.next
+			count++
+	
+			if ( currentNode === null ) break;
+		}
+
+		return true;
+	}
+
+	// Time complexity: O(n)
 	remove(val) {
 		if (this.head.val === val && this.head.next !== null) {
 			this.head = this.head.next
@@ -124,5 +150,8 @@ linkedList.insertAtHead("a");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-// linkedList.printAllValues();
+// linkedList.insertAtPositonX('x', 2)
+// head --> a --> b --> x --> c --> null
+
+linkedList.printAllValues();
 // a b c
