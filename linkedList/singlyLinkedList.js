@@ -105,7 +105,7 @@ class LinkedList {
 
 	// Time complexity: O(n)
 	remove(val) {
-		if (this.head.val === val && this.head.next !== null) {
+		if (this.head.val === val) {
 			this.head = this.head.next
 			this.size--
 			return true;
@@ -141,10 +141,9 @@ class LinkedList {
 }
 
 const linkedList = new LinkedList();
-linkedList.insertAtHead("c");
-linkedList.insertAtHead("b");
 linkedList.insertAtHead("a");
-// linkedList.insertAtTail("z");
+linkedList.insertAtTail("c");
+linkedList.insertAtPositonX("b", 1);
 
 // console.log(linkedList);
 // head --> a --> b --> c --> null
@@ -160,5 +159,5 @@ linkedList.insertAtHead("a");
 // linkedList.insertAtPositonX('x', 2);
 // head --> a --> b --> x --> c --> null
 
-linkedList.printAllValues();
+// linkedList.printAllValues();
 // a b c
