@@ -75,8 +75,12 @@ class LinkedList {
 		if ( position === 0 ) {
 			console.error("Use `insertAtHead()` method to insert data at Head.");
 			return false;
+		} else if ( position === this.size ) {
+			console.error("Use `insertAtTail()` method to insert data at Tail.");
+			return false;
 		} else if ( position > this.size && position != this.size + 1 ) {
 			console.error(`Out of range. Size of the linkedList is ${this.size}`);
+			return false;
 		}
 	
 		let prevNode = null
@@ -153,7 +157,7 @@ linkedList.insertAtHead("a");
 // console.log(linkedList);
 // head --> b --> c --> null
 
-linkedList.insertAtPositonX('x', 5)
+// linkedList.insertAtPositonX('x', 2);
 // head --> a --> b --> x --> c --> null
 
 linkedList.printAllValues();
