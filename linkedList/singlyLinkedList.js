@@ -43,7 +43,7 @@ class LinkedList {
 		}
 
 		let currentNode = this.head
-		while ( currentNode.val !== undefined ) {
+		while ( currentNode !== null ) {
 			if (currentNode.next === null) {
 				currentNode.next = new Node(node)
 				this.size++;
@@ -86,7 +86,7 @@ class LinkedList {
 		let prevNode = null
 		let currentNode = this.head
 		let count = 0
-		while (currentNode.next !== undefined) {
+		while (currentNode !== null) {
 			if ( count === position ) {
 				prevNode.next = new Node(data)
 				prevNode.next.next = currentNode
@@ -96,8 +96,6 @@ class LinkedList {
 			prevNode = currentNode
 			currentNode = currentNode.next
 			count++
-	
-			if ( currentNode === null ) break;
 		}
 
 		return true;
@@ -131,11 +129,9 @@ class LinkedList {
 	// Time complexity: O(n)
 	printAllValues() {
 		let currentNode = this.head
-		while (currentNode.next !== undefined) {
+		while (currentNode !== null) {
 			console.log(currentNode.val);
 			currentNode = currentNode.next
-
-			if (currentNode === null) break;
 		}
 	}
 }
@@ -159,5 +155,5 @@ linkedList.insertAtPositonX("b", 1);
 // linkedList.insertAtPositonX('x', 2);
 // head --> a --> b --> x --> c --> null
 
-// linkedList.printAllValues();
+linkedList.printAllValues();
 // a b c
