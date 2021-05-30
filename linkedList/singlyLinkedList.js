@@ -11,13 +11,16 @@ class Node {
 class LinkedList {
 	constructor() {
 		this.head = null
+		this.tail = null
 		this.size = 0
 	}
 
 	// Time complexity: O(1)
 	insertAtHead(node) {
 		if ( this.head === null ) {
-			this.head = new Node(node);
+			const newNode = new Node(node);
+			this.head = newNode
+			this.tail = newNode
 			this.size++;
 			return true;
 		}
@@ -25,6 +28,9 @@ class LinkedList {
 		const currentNode = this.head
 		this.head = new Node(node)
 		this.head.next = currentNode
+		if (currentNode.next === null) {
+			this.tail = currentNode
+		}
 		this.size++
 		return true;
 	}
@@ -37,15 +43,21 @@ class LinkedList {
 	// Time complexity: O(n)
 	insertAtTail(node) {
 		if ( this.head === null ) {
-			this.head = new Node(node);
+			const newNode = new Node(node);
+			this.head = newNode
+			this.tail = newNode
 			this.size++;
 			return true;
 		}
 
 		let currentNode = this.head
 		while ( currentNode !== null ) {
+			const newItem = new Node(node);
+			this.tail = newItem
+
 			if (currentNode.next === null) {
-				currentNode.next = new Node(node)
+				currentNode.next = newItem
+
 				this.size++;
 				return true;
 			}
@@ -55,19 +67,13 @@ class LinkedList {
 		return false;
 	}
 
-	// Time complexity: O(n)
+	// Time complexity: O(1)
 	getTail() {
-		let tail = null
-		let currentNode = this.head
-		if (currentNode === null) return null;
-
-		while ( currentNode !== null ) {
-			if (currentNode.next === null) {
-				tail = currentNode
-			}
-			currentNode = currentNode.next
+		if (this.tail === null) {
+			return null
 		}
-		return tail.val;
+
+		return this.tail.val
 	}
 
 	// Time complexity: O(n)
